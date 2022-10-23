@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
-        "projeto"
+        "projeto",
+        "Backend"
     ],
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#fbed80",

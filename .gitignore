@@ -2,4 +2,7 @@
 .local/
 .vscode-server/
 .ssh/
+.redhat/
 .gitconfig
+.bash_history
+.composer
