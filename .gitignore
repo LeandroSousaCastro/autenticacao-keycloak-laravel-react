@@ -6,3 +6,5 @@
 .gitconfig
 .bash_history
 .composer
+.cache/
+.docker/mysql/dbdata/

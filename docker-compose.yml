@@ -41,8 +41,10 @@ services:
   react:
     build: ./.docker/react
     container_name: oauth-keycloak-react
+    ports:
+      - 3000:3000
     volumes:
-      - .:/home/node/react
+      - ./packages/frontend:/home/node/frontend
     networks:
       - nt-keycloak-app
 
@@ -54,7 +56,7 @@ services:
       - KEYCLOAK_PASSWORD=admin
       - DB_ADDR=db
       - DB_VENDOR=mysql
-      - DB_DATABASE=oauth-keycloak-app
+      - DB_DATABASE=keycloak
       - DB_PORT=3306
       - DB_USER=root
       - DB_PASSWORD=root
