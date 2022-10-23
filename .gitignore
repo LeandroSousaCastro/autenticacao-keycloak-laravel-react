@@ -1,0 +1,5 @@
+.config/
+.local/
+.vscode-server/
+.ssh/
+.gitconfig
