@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Header } from './components/header';
 import { Routes, Route, Link } from "react-router-dom";
 import Box from '@mui/material/Box';
