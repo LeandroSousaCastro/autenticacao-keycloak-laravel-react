@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  app:
+    build: ./.docker/php
+    container_name: oauth-keycloak-app
+    volumes:
+      - .:/var/www
+    networks:
+      - app-network
+
+  nginx:
+      build: ./.docker/nginx
+      container_name: oauth-keycloak-nginx
+      tty: true
+      ports:
+        - "8080:80"
+      volumes:
+        - .:/var/www
+      networks:
+        - app-network
+      depends_on:
+        - app
+
+  react:
+    build: ./.docker/react
+    container_name: oauth-keycloak-react
+    volumes:
+      - .:/home/node/react
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
