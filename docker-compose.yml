@@ -47,6 +47,8 @@ services:
       - ./packages/frontend:/home/node/frontend
     networks:
       - nt-keycloak-app
+    extra_hosts: 
+      - "host.docker.internal:172.17.0.1"
 
   keycloak:
     image: jboss/keycloak:16.1.1

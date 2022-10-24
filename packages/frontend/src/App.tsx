@@ -1,8 +1,11 @@
 import React from 'react';
 import { Header } from './components/header';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import { BrowserRouter } from "react-router-dom";
+import { ReactKeycloakProvider } from "@react-keycloak/web";
+import keycloak from "./Keycloak"
 
 const Home = () => (
   <Box>Home</Box>
@@ -21,10 +24,14 @@ function App() {
           mt: 4,
         }}
         maxWidth="sm">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="posts" element={<Posts />} />
-        </Routes>
+        <ReactKeycloakProvider initOptions={{ onLoad: 'login-required' }} authClient={keycloak}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="posts" element={<Posts />} />
+            </Routes>
+          </BrowserRouter>
+        </ReactKeycloakProvider>
       </Container>
     </Box>
   );
